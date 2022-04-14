@@ -8,14 +8,14 @@
 
 		$sql = "UPDATE position SET description = '$title', rate = '$rate' WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Posición Actualizada Satisfactoriamente';
+			$_SESSION['success'] = 'Cargo Actualizado Satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Rellene el formulario de edición primero';
+		$_SESSION['error'] ='Para editar primero llene el formulario';
 	}
 
 	header('location:position.php');

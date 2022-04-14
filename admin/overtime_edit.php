@@ -9,14 +9,14 @@
 
 		$sql = "UPDATE overtime SET hours = '$hours', rate = '$rate', date_overtime = '$date' WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Overtime updated successfully';
+			$_SESSION['success'] = 'Horas extra actualizado satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit form first';
+		$_SESSION['error'] = 'Para editar primero llene el formulario';
 	}
 
 	header('location:overtime.php');

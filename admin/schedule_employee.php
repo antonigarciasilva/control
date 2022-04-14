@@ -52,7 +52,7 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>ID Empleado</th>
+                  <th>DNI Empleado</th>
                   <th>Nombre</th>
                   <th>Horarios</th>
                   <th>Acción</th>

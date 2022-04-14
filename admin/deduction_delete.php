@@ -5,14 +5,14 @@
 		$id = $_POST['id'];
 		$sql = "DELETE FROM deductions WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Deducción eliminada con éxito';
+			$_SESSION['success'] = 'Descuento eliminado con éxito';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Seleccione el elemento para eliminar primero';
+		$_SESSION['error'] = 'Para eliminar primero seleccione un elemento';
 	}
 
 	header('location: deduction.php');

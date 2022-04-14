@@ -12,7 +12,7 @@
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Seleccione el elemento para eliminar primero';
+		$_SESSION['error'] = 'Para eliminar primero seleccione un elemento';
 	}
 
 	header('location: employee.php');

@@ -1,5 +1,5 @@
 <!-- Add -->
-<div class="modal fade" id="profile">
+<div class="modal fade"  data-backdrop="static" data-keyboard="false" id="profile">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -13,28 +13,28 @@
                   	<label for="username" class="col-sm-3 control-label">Usuario</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="username" name="username" value="<?php echo $user['username']; ?>">
+                    	<input type="text" class="form-control" autocomplete="off" id="username" name="username" value="<?php echo $user['username']; ?>">
                   	</div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Contraseña</label>
 
                     <div class="col-sm-9"> 
-                      <input type="password" class="form-control" id="password" name="password" value="<?php echo $user['password']; ?>">
+                      <input type="password" class="form-control" autocomplete="off" id="password" name="password" value="<?php echo $user['password']; ?>">
                     </div>
                 </div>
                 <div class="form-group">
                   	<label for="firstname" class="col-sm-3 control-label">Nombre</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $user['firstname']; ?>">
+                    	<input type="text" class="form-control" id="firstname" onkeypress="return soloLetras(event)"  autocomplete="off" name="firstname" value="<?php echo $user['firstname']; ?>">
                   	</div>
                 </div>
                 <div class="form-group">
                   	<label for="lastname" class="col-sm-3 control-label">Apellido</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $user['lastname']; ?>">
+                    	<input type="text" class="form-control" id="lastname" onkeypress="return soloLetras(event)" autocomplete="off" name="lastname" value="<?php echo $user['lastname']; ?>">
                   	</div>
                 </div>
                 <div class="form-group">
@@ -49,7 +49,7 @@
                     <label for="curr_password" class="col-sm-3 control-label">Contraseña Actual:</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" id="curr_password" name="curr_password" placeholder="Ingrese su contraseña actual para guardar los cambios" required>
+                      <input type="password" class="form-control" autocomplete="off" id="curr_password" name="curr_password" placeholder="Ingrese su contraseña actual para guardar los cambios" required>
                     </div>
                 </div>
           	</div>
@@ -61,3 +61,25 @@
         </div>
     </div>
 </div>
+
+<script>
+  
+  function soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37, 39, 46],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+</script>

@@ -7,14 +7,14 @@
 
 		$sql = "INSERT INTO deductions (description, amount) VALUES ('$description', '$amount')";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Deduction added successfully';
+			$_SESSION['success'] = 'Descuento agregado satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}	
 	else{
-		$_SESSION['error'] = 'Fill up add form first';
+		$_SESSION['error'] = 'Para agregar primero llene el formulario';
 	}
 
 	header('location: deduction.php');

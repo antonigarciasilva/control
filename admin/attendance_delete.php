@@ -5,14 +5,14 @@
 		$id = $_POST['id'];
 		$sql = "DELETE FROM attendance WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Attendance deleted successfully';
+			$_SESSION['success'] = 'Asistencia eleminada satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Select item to delete first';
+		$_SESSION['error'] = 'Para eliminar primero seleccione un elemento';
 	}
 
 	header('location: attendance.php');

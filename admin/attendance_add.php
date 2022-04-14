@@ -13,7 +13,7 @@
 		$query = $conn->query($sql);
 
 		if($query->num_rows < 1){
-			$_SESSION['error'] = 'Employee not found';
+			$_SESSION['error'] = 'Empleado no encontrado';
 		}
 		else{
 			$row = $query->fetch_assoc();
@@ -23,7 +23,7 @@
 			$query = $conn->query($sql);
 
 			if($query->num_rows > 0){
-				$_SESSION['error'] = 'Employee attendance for the day exist';
+				$_SESSION['error'] = 'Empleado presente por el día de hoy';
 			}
 			else{
 				//updates
@@ -35,7 +35,7 @@
 				//
 				$sql = "INSERT INTO attendance (employee_id, date, time_in, time_out, status) VALUES ('$emp', '$date', '$time_in', '$time_out', '$logstatus')";
 				if($conn->query($sql)){
-					$_SESSION['success'] = 'Attendance added successfully';
+					$_SESSION['success'] = 'Asistencia agregada satisfactoriamente';
 					$id = $conn->insert_id;
 
 					$sql = "SELECT * FROM employees LEFT JOIN schedules ON schedules.id=employees.schedule_id WHERE employees.id = '$emp'";
@@ -72,7 +72,7 @@
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Fill up add form first';
+		$_SESSION['error'] = 'Para agregar primero llena el formulario';
 	}
 	
 	header('location: attendance.php');

@@ -7,14 +7,14 @@
 		
 		$sql = "UPDATE cashadvance SET amount = '$amount' WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Cash advance updated successfully';
+			$_SESSION['success'] = 'Adelanto de sueldo actualizado satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit form first';
+		$_SESSION['error'] = 'Para agregar primero llene el formulario';
 	}
 
 	header('location:cashadvance.php');

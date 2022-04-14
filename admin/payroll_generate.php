@@ -53,7 +53,27 @@
 	$from_title = date('M d, Y', strtotime($ex[0]));
 	$to_title = date('M d, Y', strtotime($ex[1]));
 
+
+
+
+
+    $content = '';  
+    $content .= '
+      	<h2 align="center">FERROGROUP</h2>
+      	<h4 align="center">'.$from_title." - ".$to_title.'</h4>
+      	<table border="1" cellspacing="0" style="width: 100%" align="center" cellpadding="3">  
+           <tr>  
+           		<th width="40%" align="center"><b>Nombre Empleado</b></th>
+                <th width="30%" align="center"><b>DNI Empleado</b></th>
+				<th width="30%" align="center"><b>Salario Neto</b></th> 
+           </tr>  
+      ';  
+    $content .= generateRow($from, $to, $conn, $deduction);  
+    $content .= '</table>';  
+
+	
 	require_once('../dompdf/autoload.inc.php');  
+	//Creamos un objeto para poder usar todas las funcionalidades del dompdf
 	use Dompdf\Dompdf;
 	$dompdf = new Dompdf();
 
@@ -63,7 +83,8 @@
 	$dompdf->setOptions($options);
 
 	//Imprimir una prueba
-	$dompdf->loadhtml($contents);
+	$dompdf->loadhtml($content);
+	
 
 	//Posición de la hoja
 	$dompdf->setPaper('letter');
@@ -73,37 +94,7 @@
 	$dompdf->render();
 
 	//Si estaría TRUE se va a autoimprimir con false solo se abre en el navegador
-	$dompdf->stream("archivo_.pdf", array("Attachment" => false));
-
-
-/*
-    $pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);  
-    $pdf->SetCreator(PDF_CREATOR);  
-    $pdf->SetTitle('Nomina: '.$from_title.' - '.$to_title);  
-    $pdf->SetHeaderData('', '', PDF_HEADER_TITLE, PDF_HEADER_STRING);  
-    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));  
-    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));  
-    $pdf->SetDefaultMonospacedFont('helvetica');  
-    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);  
-    $pdf->SetMargins(PDF_MARGIN_LEFT, '10', PDF_MARGIN_RIGHT);  
-    $pdf->setPrintHeader(false);  
-    $pdf->setPrintFooter(false);  
-    $pdf->SetAutoPageBreak(TRUE, 10);  
-    $pdf->SetFont('helvetica', '', 11);  
-    $pdf->AddPage();  */
-    $content = '';  
-    $content .= '
-      	<h2 align="center">FERROGROUP</h2>
-      	<h4 align="center">'.$from_title." - ".$to_title.'</h4>
-      	<table border="1" cellspacing="0" cellpadding="3">  
-           <tr>  
-           		<th width="40%" align="center"><b>Nombre Empleado</b></th>
-                <th width="30%" align="center"><b>DNI Empleado</b></th>
-				<th width="30%" align="center"><b>Salario Neto</b></th> 
-           </tr>  
-      ';  
-    $content .= generateRow($from, $to, $conn, $deduction);  
-    $content .= '</table>';  
+	$dompdf->stream("pagos_.pdf", array("Attachment" => false));
 	/*
     $pdf->writeHTML($content);  
     $pdf->Output('payroll.pdf', 'I'); */

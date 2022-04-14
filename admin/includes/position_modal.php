@@ -1,5 +1,5 @@
 <!-- Add -->
-<div class="modal fade" id="addnew">
+<div class="modal fade"  data-backdrop="static" data-keyboard="false" id="addnew">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -13,14 +13,14 @@
                   	<label for="title" class="col-sm-3 control-label">Nombre Cargo</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="title" name="title" required>
+                    	<input type="text" class="form-control" autocomplete="off" id="title" name="title" required>
                   	</div>
                 </div>
                 <div class="form-group">
                     <label for="rate" class="col-sm-3 control-label">Pago por Hora</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="rate" name="rate" required>
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="rate" name="rate" required>
                     </div>
                 </div>
           	</div>
@@ -34,7 +34,7 @@
 </div>
 
 <!-- Edit -->
-<div class="modal fade" id="edit">
+<div class="modal fade"  data-backdrop="static" data-keyboard="false" id="edit">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -49,14 +49,14 @@
                     <label for="edit_title" class="col-sm-3 control-label">Nombre del Cargo</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_title" name="title">
+                      <input type="text" class="form-control" autocomplete="off" id="edit_title" name="title">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="edit_rate" class="col-sm-3 control-label">Costo por Hora</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_rate" name="rate">
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="edit_rate" name="rate">
                     </div>
                 </div>
           	</div>
@@ -70,7 +70,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete">
+<div class="modal fade"  data-backdrop="static" data-keyboard="false" id="delete">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -96,4 +96,8 @@
 </div>
 
 
-     
+<script>
+	 function ValidarNumeros() {
+    if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;
+  }
+</script>

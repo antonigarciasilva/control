@@ -10,14 +10,14 @@
 
 		$sql = "UPDATE schedules SET time_in = '$time_in', time_out = '$time_out' WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Schedule updated successfully';
+			$_SESSION['success'] = 'Horario Actualizado Satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit form first';
+		$_SESSION['error'] = 'Para editar primero llene el formulario';
 	}
 
 	header('location:schedule.php');

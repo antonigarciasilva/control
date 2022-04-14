@@ -1,5 +1,5 @@
 <!-- Add -->
-<div class="modal fade" id="addnew">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addnew">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,28 +13,28 @@
             <label for="employee_id" class="col-sm-3 control-label">DNI</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" onKeypress="ValidarNumeros()" maxlength="8" id="employee_id" name="employee_id" required>
+              <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" maxlength="8" id="employee_id" name="employee_id" required>
             </div>
           </div>
           <div class="form-group">
             <label for="firstname" class="col-sm-3 control-label">Nombre</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="firstname" name="firstname" required>
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="firstname" name="firstname" required>
             </div>
           </div>
           <div class="form-group">
             <label for="lastname" class="col-sm-3 control-label">Apellido</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="lastname" name="lastname" required>
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="lastname" name="lastname" required>
             </div>
           </div>
           <div class="form-group">
             <label for="address" class="col-sm-3 control-label">Dirección</label>
 
             <div class="col-sm-9">
-              <textarea class="form-control" name="address" id="address"></textarea>
+              <textarea class="form-control" autocomplete="off" name="address" id="address"></textarea>
             </div>
           </div>
           <div class="form-group">
@@ -42,7 +42,7 @@
 
             <div class="col-sm-9">
               <div class="date">
-                <input type="text" class="form-control" id="datepicker_add" name="birthdate">
+                <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_add" name="birthdate">
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             <label for="contact" class="col-sm-3 control-label">Información de Contacto</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="contact" name="contact">
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="contact" name="contact">
             </div>
           </div>
           <div class="form-group">
@@ -118,7 +118,7 @@
 </div>
 
 <!-- Edit -->
-<div class="modal fade" id="edit">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -133,28 +133,28 @@
             <label for="edit_employee_id" class="col-sm-3 control-label">DNI</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" onKeypress="ValidarNumeros()" maxlength="8" id="edit_employee_id" name="employee_id" required>
+              <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" maxlength="8" id="edit_employee_id" name="employee_id" required>
             </div>
           </div>
           <div class="form-group">
             <label for="edit_firstname" class="col-sm-3 control-label">Nombre</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" onkeypress="return soloLetras(event)"  id="edit_firstname" name="firstname">
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="edit_firstname" name="firstname">
             </div>
           </div>
           <div class="form-group">
             <label for="edit_lastname" class="col-sm-3 control-label">Apellido</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="edit_lastname" onkeypress="return soloLetras(event)"  name="lastname">
+              <input type="text" class="form-control" autocomplete="off" id="edit_lastname" onkeypress="return soloLetras(event)"  name="lastname">
             </div>
           </div>
           <div class="form-group">
             <label for="edit_address" class="col-sm-3 control-label">Dirección</label>
 
             <div class="col-sm-9">
-              <textarea class="form-control" name="address"  id="edit_address"></textarea>
+              <textarea class="form-control" name="address" autocomplete="off" id="edit_address"></textarea>
             </div>
           </div>
           <div class="form-group">
@@ -162,7 +162,7 @@
 
             <div class="col-sm-9">
               <div class="date">
-                <input type="text" class="form-control" id="datepicker_edit" name="birthdate">
+                <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_edit" name="birthdate">
               </div>
             </div>
           </div>
@@ -170,7 +170,7 @@
             <label for="edit_contact" class="col-sm-3 control-label">Información de Contacto</label>
 
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="edit_contact" name="contact">
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="edit_contact" name="contact">
             </div>
           </div>
           <div class="form-group">
@@ -231,7 +231,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="delete">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -257,7 +257,7 @@
 </div>
 
 <!-- Update Photo -->
-<div class="modal fade" id="edit_photo">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit_photo">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

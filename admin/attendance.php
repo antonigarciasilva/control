@@ -53,7 +53,7 @@
                 <thead>
                   <th class="hidden"></th>
                   <th>Fecha</th>
-                  <th>ID Empleado</th>
+                  <th>DNI Empleado</th>
                   <th>Nombre</th>
                   <th>Hora Entrada</th>
                   <th>Hora Salida</th>

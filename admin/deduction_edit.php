@@ -8,14 +8,14 @@
 
 		$sql = "UPDATE deductions SET description = '$description', amount = '$amount' WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Deducción realizada satisfactoriamente';
+			$_SESSION['success'] = 'Descuento realizada satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Rellene el formulario de edición primero';
+		$_SESSION['error'] = 'Para editar primero llene el formulario';
 	}
 
 	header('location:deduction.php');

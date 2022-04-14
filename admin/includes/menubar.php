@@ -33,7 +33,7 @@
             <li><a href="schedule.php"><i class="fa fa-circle-o"></i> Horarios</a></li>
           </ul>
         </li>
-        <li><a href="deduction.php"><i class="fa fa-file-text"></i><span>Deducciones</span> </a></li>
+        <li><a href="deduction.php"><i class="fa fa-file-text"></i><span>Descuentos</span> </a></li>
         <li><a href="position.php"><i class="fa fa-suitcase"></i> <span>Cargos</span> </a></li>
         <li class="header">IMPRIMIBLES</li>
         <li><a href="payroll.php"><i class="fa fa-files-o"></i> <span>Pagos</span></a></li>

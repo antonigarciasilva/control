@@ -1,5 +1,5 @@
 <!-- Add -->
-<div class="modal fade" id="addnew">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addnew">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -10,17 +10,17 @@
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="cashadvance_add.php">
           		  <div class="form-group">
-                  	<label for="employee" class="col-sm-3 control-label">ID Empleado</label>
+                  	<label for="employee" class="col-sm-3 control-label">DNI Empleado</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="employee" name="employee" required>
+                    	<input type="text" class="form-control" autocomplete="off" maxlength="8"  onKeypress="ValidarNumeros()" id="employee" name="employee" required>
                   	</div>
                 </div>
                 <div class="form-group">
                     <label for="amount" class="col-sm-3 control-label">Monto</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="amount" name="amount" required>
+                      <input type="text" class="form-control" autocomplete="off"  onKeypress="ValidarNumeros()" id="amount" name="amount" required>
                     </div>
                 </div>
           	</div>
@@ -34,7 +34,7 @@
 </div>
 
 <!-- Edit -->
-<div class="modal fade" id="edit">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -49,7 +49,7 @@
                     <label for="edit_amount" class="col-sm-3 control-label">Monto</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_amount" name="amount" required>
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="edit_amount" name="amount" required>
                     </div>
                 </div>
           	</div>
@@ -63,7 +63,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="delete">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -89,4 +89,9 @@
 </div>
 
 
-     
+<script>
+		function ValidarNumeros() {
+		if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;
+	}
+
+</script>

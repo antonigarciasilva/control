@@ -29,7 +29,7 @@
 		//
 		$sql = "INSERT INTO employees (employee_id, firstname, lastname, address, birthdate, contact_info, gender, position_id, schedule_id, photo, created_on) VALUES ('$employee_id', '$firstname', '$lastname', '$address', '$birthdate', '$contact', '$gender', '$position', '$schedule', '$filename', NOW())";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Empleado añadido satisfactoriamente';
+			$_SESSION['success'] = 'Empleado agregado satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
@@ -37,7 +37,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Fill up add form first';
+		$_SESSION['error'] = 'Para agregar primero llene el formulario';
 	}
 
 	header('location: employee.php');

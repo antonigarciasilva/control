@@ -1,5 +1,5 @@
 <!-- Add -->
-<div class="modal fade" id="addnew">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addnew">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -10,10 +10,10 @@
           	<div class="modal-body">
             	<form class="form-horizontal" method="POST" action="overtime_add.php">
           		  <div class="form-group">
-                  	<label for="employee" class="col-sm-3 control-label">ID Empleado</label>
+                  	<label for="employee" class="col-sm-3 control-label">DNI Empleado</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="employee" name="employee" required>
+                    	<input type="text" class="form-control" autocomplete="off" maxlength="8" onKeypress="ValidarNumeros()" id="employee" name="employee" required>
                   	</div>
                 </div>
                 <div class="form-group">
@@ -21,7 +21,7 @@
 
                     <div class="col-sm-9"> 
                       <div class="date">
-                        <input type="text" class="form-control" id="datepicker_add" name="date" required>
+                        <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_add" name="date" required>
                       </div>
                     </div>
                 </div>
@@ -29,21 +29,21 @@
                   	<label for="hours" class="col-sm-3 control-label">No. de Horas</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="hours" name="hours">
+                    	<input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="hours" name="hours">
                   	</div>
                 </div>
                 <div class="form-group">
                   	<label for="mins" class="col-sm-3 control-label">No. de Minutos</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="mins" name="mins">
+                    	<input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="mins" name="mins">
                   	</div>
                 </div>
                  <div class="form-group">
                     <label for="rate" class="col-sm-3 control-label">Promedio</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="rate" name="rate" required>
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="rate" name="rate" required>
                     </div>
                 </div>
           	</div>
@@ -57,7 +57,7 @@
 </div>
 
 <!-- Edit -->
-<div class="modal fade" id="edit">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -73,7 +73,7 @@
 
                     <div class="col-sm-9"> 
                       <div class="date">
-                        <input type="text" class="form-control" id="datepicker_edit" name="date" required>
+                        <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_edit" name="date" required>
                       </div>
                     </div>
                 </div>
@@ -81,21 +81,21 @@
                     <label for="hours_edit" class="col-sm-3 control-label">No. de Horas</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="hours_edit" name="hours">
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="hours_edit" name="hours">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="mins_edit" class="col-sm-3 control-label">No. de Mins</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="mins_edit" name="mins">
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="mins_edit" name="mins">
                     </div>
                 </div>
                  <div class="form-group">
                     <label for="rate_edit" class="col-sm-3 control-label">Promedio</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="rate_edit" name="rate" required>
+                      <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="rate_edit" name="rate" required>
                     </div>
                 </div>
           	</div>
@@ -109,7 +109,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="delete">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -135,4 +135,9 @@
 </div>
 
 
-     
+<script>
+	  function ValidarNumeros() {
+    if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;
+  }
+
+</script>

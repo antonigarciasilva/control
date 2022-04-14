@@ -21,7 +21,7 @@
 		return $contents;
 	}
 
-	require_once('../tcpdf/tcpdf.php');  
+	/*require_once('../tcpdf/tcpdf.php');  
     $pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);  
     $pdf->SetCreator(PDF_CREATOR);  
     $pdf->SetTitle('ConfiguroWeb - Horario Empleados');  
@@ -35,21 +35,45 @@
     $pdf->setPrintFooter(false);  
     $pdf->SetAutoPageBreak(TRUE, 10);  
     $pdf->SetFont('helvetica', '', 11);  
-    $pdf->AddPage();  
+    $pdf->AddPage();  */
     $content = '';  
     $content .= '
-      	<h2 align="center">ConfiguroWeb</h2>
+      	<h2 align="center">FERROGROUP</h2>
       	<h3 align="center">Horario de Empleados</h3>
-      	<table border="1" cellspacing="0" cellpadding="3">  
+      	<table border="1" cellspacing="0" cellpadding="3" style="width: 100%" align="center">  
            <tr>  
            		<th width="40%" align="center"><b>Nombre Empleado</b></th>
-                <th width="30%" align="center"><b>ID Empleado</b></th>
+                <th width="30%" align="center"><b>DNI Empleado</b></th>
 				<th width="30%" align="center"><b>Horario</b></th> 
            </tr>  
       ';  
     $content .= generateRow($conn); 
     $content .= '</table>';  
+    require_once('../dompdf/autoload.inc.php');  
+	//Creamos un objeto para poder usar todas las funcionalidades del dompdf
+	use Dompdf\Dompdf;
+	$dompdf = new Dompdf();
+
+	//Para mostrar imgs
+	$options = $dompdf->getOptions();
+	$options->set(array('isRemoteEnabled' => true));
+	$dompdf->setOptions($options);
+
+	//Imprimir una prueba
+	$dompdf->loadhtml($content);
+	
+
+	//Posición de la hoja
+	$dompdf->setPaper('letter');
+	//$dompdf->setPaper('A4', 'landspace');
+
+	//Para ver el pdf en el navegador o descargarlos desde el mismo
+	$dompdf->render();
+
+	//Si estaría TRUE se va a autoimprimir con false solo se abre en el navegador
+	$dompdf->stream("Horarios.pdf", array("Attachment" => false));
+    /*
     $pdf->writeHTML($content);  
-    $pdf->Output('schedule.pdf', 'I');
+    $pdf->Output('schedule.pdf', 'I'); */
 
 ?>

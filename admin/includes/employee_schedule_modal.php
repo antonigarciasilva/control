@@ -1,5 +1,5 @@
 <!-- Edit -->
-<div class="modal fade" id="edit">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">

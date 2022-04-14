@@ -1,5 +1,5 @@
 <!-- Add -->
-<div class="modal fade" id="addnew">
+<div class="modal fade"  data-backdrop="static" data-keyboard="false" id="addnew">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -14,7 +14,7 @@
 
                   	<div class="col-sm-9">
                       <div class="bootstrap-timepicker">
-                    	 <input type="text" class="form-control timepicker" id="time_in" name="time_in" required>
+                    	 <input type="text" class="form-control timepicker" autocomplete="off" onKeypress="ValidarNumeros()" id="time_in" name="time_in" required>
                       </div>
                   	</div>
                 </div>
@@ -23,7 +23,7 @@
 
                     <div class="col-sm-9">
                       <div class="bootstrap-timepicker">
-                        <input type="text" class="form-control timepicker" id="time_out" name="time_out" required>
+                        <input type="text" class="form-control timepicker" autocomplete="off" onKeypress="ValidarNumeros()" id="time_out" name="time_out" required>
                       </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- Edit -->
-<div class="modal fade" id="edit">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -54,7 +54,7 @@
 
                     <div class="col-sm-9">
                       <div class="bootstrap-timepicker">
-                        <input type="text" class="form-control timepicker" id="edit_time_in" name="time_in">
+                        <input type="text" class="form-control timepicker" autocomplete="off" onKeypress="ValidarNumeros()" id="edit_time_in" name="time_in">
                       </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
 
                     <div class="col-sm-9">
                       <div class="bootstrap-timepicker">
-                        <input type="text" class="form-control timepicker" id="edit_time_out" name="time_out">
+                        <input type="text" class="form-control timepicker" autocomplete="off" onKeypress="ValidarNumeros()" id="edit_time_out" name="time_out">
                       </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
 </div>
 
 <!-- Delete -->
-<div class="modal fade" id="delete">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="delete">
     <div class="modal-dialog">
         <div class="modal-content">
           	<div class="modal-header">
@@ -103,5 +103,9 @@
     </div>
 </div>
 
-
+<script>
+	 function ValidarNumeros() {
+    if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;
+  }
+</script>
      

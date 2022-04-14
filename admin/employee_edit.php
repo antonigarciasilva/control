@@ -23,7 +23,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Seleccionar empleado para editar primero';
+		$_SESSION['error'] = 'Primero selecciona un empleado para editar ';
 	}
 
 	header('location: employee.php');

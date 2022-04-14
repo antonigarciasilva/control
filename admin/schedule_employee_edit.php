@@ -7,7 +7,7 @@
 		
 		$sql = "UPDATE employees SET schedule_id = '$sched_id' WHERE id = '$empid'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Schedule updated successfully';
+			$_SESSION['success'] = 'Horario Actualizado Satisfactoriamente';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
@@ -15,7 +15,7 @@
 
 	}
 	else{
-		$_SESSION['error'] = 'Select schedule to edit first';
+		$_SESSION['error'] = 'Para editar primero seleccione un horario';
 	}
 
 	header('location: schedule_employee.php');

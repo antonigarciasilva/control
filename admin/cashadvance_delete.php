@@ -12,7 +12,7 @@
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Select item to delete first';
+		$_SESSION['error'] = 'Para eliminar primero seleccione un elemento';
 	}
 
 	header('location: cashadvance.php');
