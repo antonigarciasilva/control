@@ -8,7 +8,7 @@
   	</div>
   
   	<div class="login-box-body">
-    	<h4 class="login-box-msg">Ingrese su DNI de Empleado</h4>
+    	<h4 class="login-box-msg">Ingrese DNI del Empleado</h4>
 
     	<form id="attendance">
           <div class="form-group">
@@ -18,7 +18,7 @@
             </select>
           </div>
       		<div class="form-group has-feedback">
-        		<input type="text" class="form-control input-lg" id="employee" name="employee" required>
+        		<input type="text" class="form-control input-lg" onKeypress="ValidarNumeros()" maxlength="8" id="employee" name="employee" required>
         		<span class="glyphicon glyphicon-calendar form-control-feedback"></span>
       		</div>
       		<div class="row">
@@ -78,6 +78,13 @@ $(function() {
   });
     
 });
+
+
+		function ValidarNumeros() {
+		if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;
+	}
+
+
 </script>
 </body>
 </html>

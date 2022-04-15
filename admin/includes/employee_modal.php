@@ -1,6 +1,6 @@
 <!-- Add -->
 <div class="modal fade" data-backdrop="static" data-keyboard="false" id="addnew">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,66 +8,34 @@
         <h4 class="modal-title"><b>Agregar Empleado</b></h4>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="POST" action="employee_add.php" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="employee_id" class="col-sm-3 control-label">DNI</label>
+        <form method="POST" action="employee_add.php" enctype="multipart/form-data">
 
-            <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="employee_id">DNI</label>
               <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" maxlength="8" id="employee_id" name="employee_id" required>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="firstname" class="col-sm-3 control-label">Nombre</label>
 
-            <div class="col-sm-9">
-              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="firstname" name="firstname" required>
+            <div class="form-group col-md-6">
+              <label for="address">Dirección</label>
+              <input class="form-control" autocomplete="off" name="address" id="address" required>
             </div>
           </div>
-          <div class="form-group">
-            <label for="lastname" class="col-sm-3 control-label">Apellido</label>
 
-            <div class="col-sm-9">
-              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="lastname" name="lastname" required>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="firstname">Nombre</label>
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastname">Apellidos</label>
+              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)" id="lastname" name="lastname" required>
             </div>
           </div>
-          <div class="form-group">
-            <label for="address" class="col-sm-3 control-label">Dirección</label>
 
-            <div class="col-sm-9">
-              <textarea class="form-control" autocomplete="off" name="address" id="address"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="datepicker_add" class="col-sm-3 control-label">Fecha de Nacimiento</label>
-
-            <div class="col-sm-9">
-              <div class="date">
-                <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_add" name="birthdate">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="contact" class="col-sm-3 control-label">Información de Contacto</label>
-
-            <div class="col-sm-9">
-              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="contact" name="contact">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="gender" class="col-sm-3 control-label">Género</label>
-
-            <div class="col-sm-9">
-              <select class="form-control" name="gender" id="gender" required>
-                <option value="" selected>- Seleccionar -</option>
-                <option value="Male">Hombre</option>
-                <option value="Female">Mujer</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="position" class="col-sm-3 control-label">Cargo</label>
-
-            <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="position">Cargo</label>
               <select class="form-control" name="position" id="position" required>
                 <option value="" selected>- Seleccionar -</option>
                 <?php
@@ -75,17 +43,14 @@
                 $query = $conn->query($sql);
                 while ($prow = $query->fetch_assoc()) {
                   echo "
-                              <option value='" . $prow['id'] . "'>" . $prow['description'] . "</option>
-                            ";
+                        <option value='" . $prow['id'] . "'>" . $prow['description'] . "</option>
+                      ";
                 }
                 ?>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="schedule" class="col-sm-3 control-label">Horario</label>
-
-            <div class="col-sm-9">
+            <div class="form-group col-md-6">
+              <label for="schedule">Horario</label>
               <select class="form-control" id="schedule" name="schedule" required>
                 <option value="" selected>- Seleccionar -</option>
                 <?php
@@ -93,20 +58,46 @@
                 $query = $conn->query($sql);
                 while ($srow = $query->fetch_assoc()) {
                   echo "
-                              <option value='" . $srow['id'] . "'>" . $srow['time_in'] . ' - ' . $srow['time_out'] . "</option>
-                            ";
+                        <option value='" . $srow['id'] . "'>" . $srow['time_in'] . ' - ' . $srow['time_out'] . "</option>
+                      ";
                 }
                 ?>
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label for="photo" class="col-sm-3 control-label">Foto</label>
 
-            <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="contact">Teléfono</label>
+              <input type="text" class="form-control" autocomplete="off" maxlength="9" onKeypress="ValidarNumeros()" id="contact" name="contact">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="datepicker_add">Fecha de Nacimiento</label>
+              <div class="date">
+                <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_add" name="birthdate">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="gender">Género</label>
+              <select class="form-control" name="gender" id="gender" required>
+                <option value="" selected>- Seleccionar -</option>
+                <option value="Male">Hombre</option>
+                <option value="Female">Mujer</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="photo">Foto</label>
               <input type="file" name="photo" id="photo">
             </div>
           </div>
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
@@ -119,75 +110,42 @@
 
 <!-- Edit -->
 <div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><b><span class="employee_id"></span></b></h4>
+        <h3 class="modal-title"><b>Editar empleado</b></h3>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="POST" action="employee_edit.php">
+        <form method="POST" action="employee_edit.php">
           <input type="hidden" class="empid" name="id">
-          <div class="form-group">
-            <label for="edit_employee_id" class="col-sm-3 control-label">DNI</label>
-
-            <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="edit_employee_id">DNI</label>
               <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" maxlength="8" id="edit_employee_id" name="employee_id" required>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="edit_firstname" class="col-sm-3 control-label">Nombre</label>
 
-            <div class="col-sm-9">
-              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="edit_firstname" name="firstname">
+            <div class="form-group col-md-6">
+              <label for="edit_address">Dirección</label>
+              <input class="form-control" name="address" autocomplete="off" id="edit_address">
             </div>
           </div>
-          <div class="form-group">
-            <label for="edit_lastname" class="col-sm-3 control-label">Apellido</label>
 
-            <div class="col-sm-9">
-              <input type="text" class="form-control" autocomplete="off" id="edit_lastname" onkeypress="return soloLetras(event)"  name="lastname">
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="edit_firstname">Nombre</label>
+              <input type="text" class="form-control col-md-6" autocomplete="off" onkeypress="return soloLetras(event)" id="edit_firstname" name="firstname">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="edit_lastname">Apellidos</label>
+              <input type="text" class="form-control col-md-6" autocomplete="off" id="edit_lastname" onkeypress="return soloLetras(event)" name="lastname">
             </div>
           </div>
-          <div class="form-group">
-            <label for="edit_address" class="col-sm-3 control-label">Dirección</label>
-
-            <div class="col-sm-9">
-              <textarea class="form-control" name="address" autocomplete="off" id="edit_address"></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="datepicker_edit" class="col-sm-3 control-label">Fecha de Nacimiento</label>
-
-            <div class="col-sm-9">
-              <div class="date">
-                <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_edit" name="birthdate">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="edit_contact" class="col-sm-3 control-label">Información de Contacto</label>
-
-            <div class="col-sm-9">
-              <input type="text" class="form-control" autocomplete="off" onkeypress="return soloLetras(event)"  id="edit_contact" name="contact">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="edit_gender" class="col-sm-3 control-label">Género</label>
-
-            <div class="col-sm-9">
-              <select class="form-control" name="gender" id="edit_gender">
-                <option selected id="gender_val"></option>
-                <option value="Male">Hombre</option>
-                <option value="Female">Mujer</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="edit_position" class="col-sm-3 control-label">Cargo</label>
-
-            <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="edit_position">Cargo</label>
               <select class="form-control" name="position" id="edit_position">
                 <option selected id="position_val"></option>
                 <?php
@@ -201,11 +159,8 @@
                 ?>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="edit_schedule" class="col-sm-3 control-label">Horario</label>
-
-            <div class="col-sm-9">
+            <div class="form-group col-md-6">
+              <label for="edit_schedule">Horario</label>
               <select class="form-control" id="edit_schedule" name="schedule">
                 <option selected id="schedule_val"></option>
                 <?php
@@ -220,6 +175,32 @@
               </select>
             </div>
           </div>
+
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="edit_contact">Teléfono</label>
+              <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" maxlength="0" id="edit_contact" name="contact">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="datepicker_edit">Fecha de Nacimiento</label>
+              <div class="date">
+                <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="datepicker_edit" name="birthdate">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="edit_gender">Género</label>
+              <select class="form-control" name="gender" id="edit_gender">
+                <option selected id="gender_val"></option>
+                <option value="Male">Hombre</option>
+                <option value="Female">Mujer</option>
+              </select>
+            </div>
+          </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
@@ -266,12 +247,11 @@
         <h4 class="modal-title"><b><span class="del_employee_name"></span></b></h4>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" method="POST" action="employee_edit_photo.php" enctype="multipart/form-data">
+        <form  method="POST" action="employee_edit_photo.php" enctype="multipart/form-data">
           <input type="hidden" class="empid" name="id">
-          <div class="form-group">
-            <label for="photo" class="col-sm-3 control-label">Foto</label>
-
-            <div class="col-sm-9">
+          <div class="row">
+            <div class="form-group col-md-10">
+              <label for="photo">Foto</label>
               <input type="file" id="photo" name="photo" required>
             </div>
           </div>
