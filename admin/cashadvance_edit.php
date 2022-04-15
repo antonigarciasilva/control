@@ -14,7 +14,7 @@
 		}
 	}
 	else{
-		$_SESSION['error'] = 'Para agregar primero llene el formulario';
+		$_SESSION['error'] = ' Para editar primero llene el formulario';
 	}
 
 	header('location:cashadvance.php');

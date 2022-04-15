@@ -50,7 +50,7 @@
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nuevo</a>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
+              <table id="extra" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
                   <th>Fecha</th>
@@ -134,6 +134,35 @@ function getRow(id){
     }
   });
 }
+
+
+
+$(document).ready(function() {
+      $('#extra').DataTable({
+        responsive: true,
+        autowidth: false,
+        "language": {
+          "lengthMenu": "Mostrar" +
+            `<select class="custom-select custom-select-sm form-control form-control-sm" >
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="-1">Todos</option>
+            </select>` +
+            " registros por página",
+          "zeroRecords": "Nada encontrado - disculpa",
+          "info": "Mostrando la página _PAGE_ de _PAGES_",
+          "infoEmpty": "No records available",
+          "infoFiltered": "(filtrado de _MAX_ registros totales)",
+          "search": "Buscar:",
+          "paginate": {
+            'next' : 'Siguiente',
+            'previous': 'Anterior'
+          },
+        }
+      });
+    });
 </script>
 </body>
 </html>

@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'admin', '$2y$10$UrGSvHTWm8.ZK4BzPmo8iuqsK6XF5RfHay6ooC5D50y/nShon5wqe', 'Mauricio', 'Sevilla', 'logo1.jpg', '2019-12-18');
+(1, 'admin', '$2y$10$UrGSvHTWm8.ZK4BzPmo8iuqsK6XF5RfHay6ooC5D50y/nShon5wqe', 'Antoni', 'Garcia', 'fe.png', '2022-04-15');
 
 -- --------------------------------------------------------
 
@@ -65,9 +65,9 @@ CREATE TABLE `attendance` (
 -- Volcado de datos para la tabla `attendance`
 --
 
-INSERT INTO `attendance` (`id`, `employee_id`, `date`, `time_in`, `status`, `time_out`, `num_hr`) VALUES
+/*INSERT INTO `attendance` (`id`, `employee_id`, `date`, `time_in`, `status`, `time_out`, `num_hr`) VALUES
 (119, 24, '2020-01-07', '10:11:26', 0, '00:00:00', 0),
-(120, 25, '2020-01-07', '10:17:04', 0, '00:00:00', 0);
+(120, 25, '2020-01-07', '10:17:04', 0, '00:00:00', 0);*/
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,8 @@ CREATE TABLE `cashadvance` (
 -- Volcado de datos para la tabla `cashadvance`
 --
 
-INSERT INTO `cashadvance` (`id`, `date_advance`, `employee_id`, `amount`) VALUES
-(1, '2020-01-07', '25', 50000);
+/*INSERT INTO `cashadvance` (`id`, `date_advance`, `employee_id`, `amount`) VALUES
+(1, '2020-01-07', '25', 50000);*/
 
 -- --------------------------------------------------------
 
@@ -105,8 +105,8 @@ CREATE TABLE `deductions` (
 -- Volcado de datos para la tabla `deductions`
 --
 
-INSERT INTO `deductions` (`id`, `description`, `amount`) VALUES
-(5, 'Pago de EPS 4%', 2500);
+/*INSERT INTO `deductions` (`id`, `description`, `amount`) VALUES
+(5, 'Pago de EPS 4%', 2500);*/
 
 -- --------------------------------------------------------
 
@@ -133,9 +133,9 @@ CREATE TABLE `employees` (
 -- Volcado de datos para la tabla `employees`
 --
 
-INSERT INTO `employees` (`id`, `employee_id`, `firstname`, `lastname`, `address`, `birthdate`, `contact_info`, `gender`, `position_id`, `schedule_id`, `photo`, `created_on`) VALUES
+/*INSERT INTO `employees` (`id`, `employee_id`, `firstname`, `lastname`, `address`, `birthdate`, `contact_info`, `gender`, `position_id`, `schedule_id`, `photo`, `created_on`) VALUES
 (24, 'MAW817094635', 'Abelardo', 'Mejia', 'Calle 54 N 12-23', '1989-07-12', '', 'Female', 2, 2, '', '2020-01-07'),
-(25, 'PJO724930615', 'Roberto', 'Velasquez', 'Av 15 12-72', '1989-06-13', '', 'Male', 1, 4, '', '2020-01-07');
+(25, 'PJO724930615', 'Roberto', 'Velasquez', 'Av 15 12-72', '1989-06-13', '', 'Male', 1, 4, '', '2020-01-07');*/
 
 -- --------------------------------------------------------
 
@@ -167,11 +167,11 @@ CREATE TABLE `position` (
 -- Volcado de datos para la tabla `position`
 --
 
-INSERT INTO `position` (`id`, `description`, `rate`) VALUES
+/*INSERT INTO `position` (`id`, `description`, `rate`) VALUES
 (1, 'Programador', 100000),
 (2, 'Escritor', 28000),
 (3, 'Marketing ', 42000),
-(4, 'DiseÃ±ador GrÃ¡fico', 35000);
+(4, 'DiseÃ±ador GrÃ¡fico', 35000);*/
 
 -- --------------------------------------------------------
 
@@ -189,12 +189,12 @@ CREATE TABLE `schedules` (
 -- Volcado de datos para la tabla `schedules`
 --
 
-INSERT INTO `schedules` (`id`, `time_in`, `time_out`) VALUES
+/*INSERT INTO `schedules` (`id`, `time_in`, `time_out`) VALUES
 (1, '07:00:00', '16:00:00'),
 (2, '08:00:00', '17:00:00'),
 (3, '09:00:00', '18:00:00'),
 (4, '10:00:00', '19:00:00');
-
+*/
 --
 -- Índices para tablas volcadas
 --
@@ -261,43 +261,43 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de la tabla `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `cashadvance`
 --
 ALTER TABLE `cashadvance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `deductions`
 --
 ALTER TABLE `deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `overtime`
 --
 ALTER TABLE `overtime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `position`
 --
 ALTER TABLE `position`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
