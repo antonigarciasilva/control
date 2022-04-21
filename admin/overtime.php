@@ -57,22 +57,22 @@
                   <th>DNI Empleado</th>
                   <th>Nombre</th>
                   <th>No. de Horas</th>
-                  <th>Rate</th>
+                <!--  <th>Rate</th> <td>".$row['rate']."</td> -->
                   <th>Acción</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, overtime.id AS otid, employees.employee_id AS empid FROM overtime LEFT JOIN employees ON employees.id=overtime.employee_id ORDER BY date_overtime DESC";
+                    $sql = "SELECT *, DATE_FORMAT(date_overtime,'%d/%m/%Y ') AS fecha, overtime.id AS otid, employees.employee_id AS empid FROM overtime LEFT JOIN employees ON employees.id=overtime.employee_id ORDER BY date_overtime DESC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
                           <td class='hidden'></td>
-                          <td>".date('M d, Y', strtotime($row['date_overtime']))."</td>
+                          <td>".$row['fecha']."</td>
                           <td>".$row['empid']."</td>
                           <td>".$row['firstname'].' '.$row['lastname']."</td>
-                          <td>".$row['hours']."</td>
-                          <td>".$row['rate']."</td>
+                          <td>".number_format($row['hours'],2)."</td>
+                          
                           <td>
                             <button class='btn btn-success btn-sm btn-flat edit' data-id='".$row['otid']."'><i class='fa fa-edit'></i> Editar</button>
                             <button class='btn btn-danger btn-sm btn-flat delete' data-id='".$row['otid']."'><i class='fa fa-trash'></i> Eliminar</button>

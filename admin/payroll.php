@@ -105,7 +105,15 @@
                       $carow = $caquery->fetch_assoc();
                       $cashadvance = $carow['cashamount'];
 
-                      $gross = $row['rate'] * $row['total_hr'];
+
+                      $tesql = "SELECT *, SUM(hours) AS extratime FROM overtime WHERE employee_id='$empid' AND date_overtime BETWEEN '$from' AND '$to' ";
+
+                      $tequery = $conn->query($tesql);
+                      $terow = $tequery->fetch_assoc();
+                      $overtime = $terow['extratime'];
+                    
+
+                      $gross = $row['rate'] * ($row['total_hr'] + $overtime);
                       $total_deduction = $deduction + $cashadvance;
                       $net = $gross - $total_deduction;
 

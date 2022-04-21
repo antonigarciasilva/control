@@ -62,14 +62,14 @@
                   </thead>
                   <tbody>
                     <?php
-                    $sql = "SELECT *, employees.employee_id AS empid, attendance.id AS attid FROM attendance LEFT JOIN employees ON employees.id=attendance.employee_id ORDER BY attendance.date DESC, attendance.time_in DESC";
+                    $sql = "SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS fdate, employees.employee_id AS empid, attendance.id AS attid FROM attendance LEFT JOIN employees ON employees.id=attendance.employee_id ORDER BY attendance.date DESC, attendance.time_in DESC";
                     $query = $conn->query($sql);
                     while ($row = $query->fetch_assoc()) {
                       $status = ($row['status']) ? '<span class="label label-warning pull-right">a tiempo</span>' : '<span class="label label-danger pull-right">tarde</span>';
                       echo "
                         <tr>
                           <td class='hidden'></td>
-                          <td>" . date('M d, Y', strtotime($row['date'])) . "</td>
+                          <td>" . $row['fdate'] . "</td>
                           <td>" . $row['empid'] . "</td>
                           <td>" . $row['firstname'] . ' ' . $row['lastname'] . "</td>
                           <td>" . date('h:i A', strtotime($row['time_in'])) . $status . "</td>

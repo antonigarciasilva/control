@@ -61,13 +61,13 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, cashadvance.id AS caid, employees.employee_id AS empid FROM cashadvance LEFT JOIN employees ON employees.id=cashadvance.employee_id ORDER BY date_advance DESC";
+                    $sql = "SELECT *, DATE_FORMAT(date_advance, '%d/%m/%Y') AS fecha_advance, cashadvance.id AS caid, employees.employee_id AS empid FROM cashadvance LEFT JOIN employees ON employees.id=cashadvance.employee_id ORDER BY date_advance DESC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
                           <td class='hidden'></td>
-                          <td>".date('M d, Y', strtotime($row['date_advance']))."</td>
+                          <td>".$row['fecha_advance']."</td>
                           <td>".$row['empid']."</td>
                           <td>".$row['firstname'].' '.$row['lastname']."</td>
                           <td>".number_format($row['amount'], 2)."</td>

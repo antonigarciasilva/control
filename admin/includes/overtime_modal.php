@@ -39,13 +39,13 @@
                     	<input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="mins" name="mins">
                   	</div>
                 </div>
-                 <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="rate" class="col-sm-3 control-label">Promedio</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="rate" name="rate" required>
                     </div>
-                </div>
+                </div> -->
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
@@ -91,6 +91,7 @@
                       <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="mins_edit" name="mins">
                     </div>
                 </div>
+<!--
                  <div class="form-group">
                     <label for="rate_edit" class="col-sm-3 control-label">Promedio</label>
 
@@ -98,6 +99,7 @@
                       <input type="text" class="form-control" autocomplete="off" onKeypress="ValidarNumeros()" id="rate_edit" name="rate" required>
                     </div>
                 </div>
+-->
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Cerrar</button>
