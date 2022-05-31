@@ -48,7 +48,15 @@
           <div class="box">
             <div class="box-header with-border">
                <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nuevo</a>
+               <div class="pull-right">
+                <form method="POST" class="form-inline" id="employee_list">
+                  <button type="button" class="btn btn-secondary btn-sm btn-flat" id="list_employee"><span class="glyphicon glyphicon-print"></span> Lista de empleados</button>
+                </form>
+              </div>
             </div>
+           
+            
+            
             <div class="box-body">
               <table id="empleado" class="table table-bordered">
                 <thead>
@@ -116,6 +124,13 @@ $(function(){
     getRow(id);
   });
 
+
+
+  $('#list_employee').click(function(e){
+    e.preventDefault();
+    $('#employee_list').attr('action', 'employee_generate.php');
+    $('#employee_list').submit();
+  });
 });
 
 function getRow(id){

@@ -59,7 +59,7 @@
 
     $content = '';  
     $content .= '
-      	<h2 align="center">FERROGROUP</h2>
+      	<h2 align="center">FERROPLAST GROUP</h2>
       	<h4 align="center">'.$from_title." - ".$to_title.'</h4>
       	<table border="1" cellspacing="0" style="width: 100%" align="center" cellpadding="3">  
            <tr>  
